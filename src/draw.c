@@ -622,6 +622,10 @@ void animate_init(struct term_buf* buf)
 				matrix_init(buf);
 				break;
 			}
+			case 2:
+				doom_init(buf);
+				matrix_init(buf);
+				break;
 		}
 	}
 }
@@ -832,6 +836,10 @@ void animate(struct term_buf* buf)
 				matrix(buf);
 				break;
 			}
+			case 2:
+				doom(buf);
+				matrix(buf);
+				break;
 		}
 	}
 }

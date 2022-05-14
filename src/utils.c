@@ -155,28 +155,30 @@ void hostname(char** out)
 		return;
 	}
 
-	int maxlen = sysconf(_SC_HOST_NAME_MAX);
+	// int maxlen = sysconf(_SC_HOST_NAME_MAX);
 
-	if (maxlen < 0)
-	{
-		maxlen = _POSIX_HOST_NAME_MAX;
-	}
+	// if (maxlen < 0)
+	// {
+	// 	maxlen = _POSIX_HOST_NAME_MAX;
+	// }
 
-	hostname_backup = malloc(maxlen + 1);
+	// hostname_backup = malloc(maxlen + 1);
 
-	if (hostname_backup == NULL)
-	{
-		dgn_throw(DGN_ALLOC);
-		return;
-	}
+	// if (hostname_backup == NULL)
+	// {
+	// 	dgn_throw(DGN_ALLOC);
+	// 	return;
+	// }
 
-	if (gethostname(hostname_backup, maxlen) < 0)
-	{
-		dgn_throw(DGN_HOSTNAME);
-		return;
-	}
+	// if (gethostname(hostname_backup, maxlen) < 0)
+	// {
+	// 	dgn_throw(DGN_HOSTNAME);
+	// 	return;
+	// }
 
-	hostname_backup[maxlen] = '\0';
+	hostname_backup = malloc(1);
+
+	hostname_backup[0] = '\0';
 	*out = hostname_backup;
 }
 
